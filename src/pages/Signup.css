@@ -1,0 +1,354 @@
+/* Full-page cinematic background */
+.cinema-page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1920&q=80")
+    center center / cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+.cinema-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 0;
+}
+
+/* Navbar */
+.navbar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffcc00;
+}
+
+.navbar nav a {
+  margin-left: 2rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar nav a:hover {
+  color: #ffcc00;
+}
+
+/* Signup card */
+.signup-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  z-index: 2;
+}
+
+.signup-card {
+  background: rgba(20, 20, 20, 0.75);
+  backdrop-filter: blur(12px);
+  padding: 2rem 3rem;
+  border-radius: 15px;
+  width: 380px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+.signup-card h2 {
+  color: #ffcc00;
+  margin-bottom: 1rem;
+}
+
+.signup-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-card input {
+  margin: 0.6rem 0;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 0.95rem;
+  outline: none;
+  transition: background 0.3s;
+}
+
+.signup-card input:focus {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.signup-card button {
+  background: #ffcc00;
+  border: none;
+  color: #222;
+  font-weight: 600;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.signup-card button:hover {
+  background: #ffd633;
+}
+
+.error {
+  color: #ff6b6b;
+  font-weight: 500;
+}
+
+.success {
+  color: #4caf50;
+  font-weight: 500;
+}
+
+.login-link {
+  color: #ffcc00;
+  cursor: pointer;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.login-link:hover {
+  color: #ffd633;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.8rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .signup-card {
+    width: 90%;
+    padding: 1.5rem;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal {
+  background: #1c1c1c;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  width: 400px;
+  color: #fff;
+}
+
+.modal h3 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.modal input,
+.modal textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.readonly-email {
+  background: #2d2d2d;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+.modal textarea {
+  resize: none;
+  height: 100px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit-btn {
+  background: #f5c518;
+  color: #000;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: #555;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.success-msg {
+  color: #00ff88;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.payment-error {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: #ff6b6b;  /* Changed to match the error color used in login form */
+}
+
+/* Payment Modal Overlay */
+.payment-modal-overlay {
+  position: fixed;
+  inset: 0;  /* More modern approach, consistent with other overlays */
+  background: rgba(0, 0, 0, 0.75);  /* Matching the main overlay darkness */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(12px);  /* Adding blur effect consistent with other modals */
+}
+
+/* Enhanced Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 4rem;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar .logo {
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 2rem;
+  }
+  
+  .navbar nav {
+    gap: 1rem;
+  }
+}
+
+
+/* Existing code unchanged... */
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .signup-card {
+    width: 90%;
+    padding: 1.5rem;
+  }
+}
+
+/* 🔽 Extra responsiveness for tablets and smaller laptops */
+@media (max-width: 992px) {
+  .signup-card {
+    width: 70%;
+    padding: 2rem;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 2rem;
+  }
+
+  .navbar nav {
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .cinema-page {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 80px; /* prevent overlap with fixed navbar */
+  }
+}
+
+/* 🔽 Ultra small devices */
+@media (max-width: 400px) {
+  .signup-card {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  .signup-card input,
+  .signup-card button {
+    font-size: 0.85rem;
+    padding: 0.7rem;
+  }
+
+  .navbar .logo {
+    font-size: 1.2rem;
+  }
+}

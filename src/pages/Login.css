@@ -1,0 +1,308 @@
+/* Full-page setup */
+.cinema-page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: url("https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1920&q=80")
+    center center / cover no-repeat;
+  color: black;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Dark gradient overlay */
+.cinema-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.85)
+    );
+  z-index: 0;
+}
+
+/* Navbar */
+.navbar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #ffcc00;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-links li {
+  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links li:hover {
+  color: #ffcc00;
+}
+
+/* Center login box */
+.login-overlay {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: relative;
+}
+
+.login-box {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 40px 50px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+}
+
+.login-box h2 {
+  color: #ffcc00;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 25px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  transition: background 0.2s;
+}
+
+.login-box input::placeholder {
+  color: #ddd;
+}
+
+.login-box input:focus {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ffcc00;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-box button:hover {
+  background-color: #ffdb4d;
+}
+
+.signup-text {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+.signup-text span {
+  color: #ffcc00;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Error message */
+.error-msg {
+  background: rgba(255, 0, 0, 0.15);
+  color: #ff4d4f;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+.footer {
+  position: relative;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.footer-content p {
+  margin: 0;
+}
+
+.footer-content p:hover {
+  color: #ffcc00;
+  cursor: pointer;
+}
+
+.copyright {
+  color: #777;
+  font-size: 0.8rem;
+}
+
+.navbar,
+.login-overlay,
+.footer {
+  position: relative;
+  z-index: 2;
+}
+.cinema-page::before {
+  animation: zoomBg 20s ease-in-out infinite alternate;
+}
+
+@keyframes zoomBg {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+.payment-error {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: #ff4d4f;
+}
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal {
+  background: #1c1c1c;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  width: 400px;
+  color: #fff;
+}
+
+.modal h3 {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.modal input,
+.modal textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.readonly-email {
+  background: #2d2d2d;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+.modal textarea {
+  resize: none;
+  height: 100px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit-btn {
+  background: #f5c518;
+  color: #000;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: #555;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.success-msg {
+  color: #00ff88;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.payment-error {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: #ff4d4f;
+}
+/* Payment Modal Overlay */
+/* Payment Modal Overlay */
+.payment-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}

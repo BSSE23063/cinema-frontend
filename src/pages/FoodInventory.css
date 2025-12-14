@@ -1,0 +1,693 @@
+/* src/pages/FoodInventory.css - Fixed Input Sections */
+.food-inventory-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.food-inventory-card {
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(15px);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 2px solid rgba(184, 134, 11, 0.3);
+  color: #fff;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.food-inventory-title {
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-align: center;
+  background: linear-gradient(135deg, #daa520 0%, #ffd700 50%, #b8860b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 10px rgba(218, 165, 32, 0.3);
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.food-inventory-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(135deg, #daa520, #ffd700);
+  border-radius: 2px;
+}
+
+/* Messages */
+.message {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.error-message {
+  background: rgba(139, 0, 0, 0.2);
+  border: 2px solid #8b0000;
+  color: #ff6b6b;
+}
+
+.success-message {
+  background: rgba(34, 139, 34, 0.2);
+  border: 2px solid #228b22;
+  color: #90ee90;
+}
+
+.message-icon {
+  margin-right: 0.8rem;
+  font-size: 1.2rem;
+}
+
+.message-close {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: auto;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Add Food Section - COMPLETELY FIXED */
+.add-food-section {
+  background: rgba(20, 20, 20, 0.8);
+  border: 2px solid rgba(184, 134, 11, 0.2);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.add-food-section h4 {
+  margin-bottom: 1.5rem;
+  color: #daa520;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.food-input-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-group label {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.food-input {
+  padding: 1rem;
+  border: 2px solid rgba(184, 134, 11, 0.3);
+  border-radius: 8px;
+  background: rgba(30, 30, 30, 0.9);
+  color: #fff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.food-input:focus {
+  border-color: #daa520;
+  box-shadow: 0 0 15px rgba(218, 165, 32, 0.3);
+  outline: none;
+}
+
+.food-input.invalid {
+  border-color: #8b0000;
+  background: rgba(139, 0, 0, 0.1);
+}
+
+.input-error {
+  color: #ff6b6b;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 0.3rem;
+  min-height: 1.2rem;
+}
+
+.add-food-btn {
+  background: linear-gradient(135deg, #b8860b 0%, #daa520 50%, #ffd700 100%);
+  color: #000;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: fit-content;
+  min-width: 140px;
+  white-space: nowrap;
+  margin-top: 1.8rem; /* Align with inputs considering label height */
+}
+
+.add-food-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(218, 165, 32, 0.4);
+}
+
+.add-food-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Food Items Section */
+.food-items-section {
+  background: rgba(20, 20, 20, 0.8);
+  border: 2px solid rgba(184, 134, 11, 0.2);
+  border-radius: 15px;
+  padding: 2rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(184, 134, 11, 0.2);
+}
+
+.section-header h4 {
+  margin: 0;
+  color: #daa520;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.refresh-btn {
+  background: rgba(30, 30, 30, 0.9);
+  color: #daa520;
+  border: 2px solid rgba(184, 134, 11, 0.3);
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.refresh-btn:hover:not(:disabled) {
+  background: rgba(218, 165, 32, 0.1);
+  border-color: #daa520;
+  transform: translateY(-2px);
+}
+
+.refresh-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Loading and Empty States */
+.loading-state, .empty-state {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: rgba(30, 30, 30, 0.6);
+  border-radius: 10px;
+  border: 2px dashed rgba(184, 134, 11, 0.3);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.loading-spinner {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.empty-state h5 {
+  margin: 0 0 0.5rem 0;
+  color: #daa520;
+  font-size: 1.2rem;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Food Items Grid */
+.food-items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.food-item-card {
+  background: rgba(30, 30, 30, 0.9);
+  border: 2px solid rgba(184, 134, 11, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.food-item-card:hover {
+  border-color: rgba(218, 165, 32, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(218, 165, 32, 0.2);
+}
+
+.food-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.food-item-name {
+  margin: 0;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  flex: 1;
+  min-width: 0;
+  word-wrap: break-word;
+}
+
+.food-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.edit-btn {
+  background: rgba(30, 30, 30, 0.9);
+  color: #daa520;
+  border: 2px solid rgba(184, 134, 11, 0.3);
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  min-width: 60px;
+}
+
+.edit-btn:hover:not(:disabled) {
+  background: rgba(218, 165, 32, 0.1);
+  border-color: #daa520;
+  transform: translateY(-1px);
+}
+
+.delete-btn {
+  background: rgba(139, 0, 0, 0.2);
+  color: #8b0000;
+  border: 2px solid #8b0000;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  min-width: 70px;
+}
+
+.delete-btn:hover:not(:disabled) {
+  background: #8b0000;
+  color: white;
+  transform: translateY(-1px);
+}
+
+.food-item-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 0;
+}
+
+.food-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.detail-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.detail-value {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.detail-value.price {
+  color: #daa520;
+  font-size: 1.1rem;
+}
+
+.food-item-status {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: auto;
+}
+
+.status-badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.out-of-stock {
+  background: rgba(139, 0, 0, 0.3);
+  color: #ff6b6b;
+  border: 1px solid #8b0000;
+}
+
+.low-stock {
+  background: rgba(255, 165, 0, 0.3);
+  color: #ffa500;
+  border: 1px solid #ff8c00;
+}
+
+.in-stock {
+  background: rgba(34, 139, 34, 0.3);
+  color: #90ee90;
+  border: 1px solid #228b22;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal {
+  background: rgba(10, 10, 10, 0.95);
+  border: 2px solid rgba(184, 134, 11, 0.3);
+  border-radius: 15px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  color: #fff;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(184, 134, 11, 0.2);
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: #daa520;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.close-btn:hover {
+  color: #daa520;
+  transform: scale(1.1);
+}
+
+.modal-content {
+  margin-bottom: 2rem;
+}
+
+.edit-food-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.cancel-btn {
+  background: rgba(139, 0, 0, 0.2);
+  color: #8b0000;
+  border: 2px solid #8b0000;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  min-width: 100px;
+  white-space: nowrap;
+}
+
+.cancel-btn:hover:not(:disabled) {
+  background: #8b0000;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(139, 0, 0, 0.4);
+}
+
+.save-btn {
+  background: linear-gradient(135deg, #b8860b 0%, #daa520 50%, #ffd700 100%);
+  color: #000;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 140px;
+  white-space: nowrap;
+}
+
+.save-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(218, 165, 32, 0.4);
+}
+
+.save-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Error Boundary */
+.error-boundary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  padding: 2rem;
+}
+
+.error-content {
+  text-align: center;
+  background: rgba(10, 10, 10, 0.95);
+  padding: 3rem;
+  border-radius: 15px;
+  border: 2px solid rgba(184, 134, 11, 0.3);
+  color: #fff;
+}
+
+.error-content h3 {
+  color: #daa520;
+  margin-bottom: 1rem;
+}
+
+.retry-btn {
+  background: linear-gradient(135deg, #b8860b 0%, #daa520 50%, #ffd700 100%);
+  color: #000;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  white-space: nowrap;
+}
+
+.retry-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(218, 165, 32, 0.4);
+}
+
+/* Responsive Design - FIXED */
+@media (max-width: 1024px) {
+  .food-input-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  
+  .add-food-btn {
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-top: 0;
+    width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .food-inventory-container {
+    padding: 10px;
+  }
+  
+  .food-inventory-card {
+    padding: 1.5rem;
+  }
+  
+  .food-input-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .add-food-btn {
+    grid-column: 1;
+    width: 100%;
+    min-width: auto;
+  }
+  
+  .food-items-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .food-item-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .food-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .food-item-details {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+  }
+  
+  .cancel-btn,
+  .save-btn {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .food-inventory-title {
+    font-size: 1.8rem;
+  }
+  
+  .add-food-section,
+  .food-items-section {
+    padding: 1.5rem;
+  }
+  
+  .modal {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .food-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .edit-btn,
+  .delete-btn {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+/* Prevent text overflow */
+.food-item-name,
+.detail-label,
+.detail-value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Ensure proper spacing in food cards */
+.food-item-card > *:last-child {
+  margin-bottom: 0;
+}
