@@ -287,8 +287,8 @@ export default function Movies() {
   const getImageUrl = (imageUrl) => {
     if (!imageUrl) return null;
     if (imageUrl.startsWith('http')) return imageUrl;
-    if (imageUrl.startsWith('/')) return `http://localhost:3000${imageUrl}`;
-    return `http://localhost:3000/${imageUrl}`;
+    if (imageUrl.startsWith('/')) return `http://52.20.176.113:3000${imageUrl}`;
+    return `http://52.20.176.113:3000/${imageUrl}`;
   };
 
   const displayMovies = searchTerm ? filteredMovies : movies;
